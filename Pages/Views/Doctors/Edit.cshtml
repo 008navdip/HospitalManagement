@@ -1,0 +1,55 @@
+﻿@page
+@model HospitalManagement.Pages.Views.Doctors.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Doctor</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Doctor.DrCode" />
+            <div class="form-group">
+                <label asp-for="Doctor.Name" class="control-label"></label>
+                <input asp-for="Doctor.Name" class="form-control" />
+                <span asp-validation-for="Doctor.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Doctor.Gender" class="control-label"></label>
+                <input asp-for="Doctor.Gender" class="form-control" />
+                <span asp-validation-for="Doctor.Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Doctor.Designation" class="control-label"></label>
+                <input asp-for="Doctor.Designation" class="form-control" />
+                <span asp-validation-for="Doctor.Designation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Doctor.Address" class="control-label"></label>
+                <input asp-for="Doctor.Address" class="form-control" />
+                <span asp-validation-for="Doctor.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Doctor.Surgeon" /> @Html.DisplayNameFor(model => model.Doctor.Surgeon)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
